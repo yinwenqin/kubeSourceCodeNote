@@ -24,7 +24,7 @@ git checkout v1.14.3  # 切换到tag为v1.14.3的版本
 源码拉取完成后，用自己的IDE打开，准备工作完毕.
 
 ## 核心组件
-- [Scheduler](https://github.com/yinwenqin/kubeSourceCodeNote)
+- [Scheduler](https://github.com/yinwenqin/kubeSourceCodeNote/tree/master/scheduler)
 - Controller
 - 待补充
 - 
