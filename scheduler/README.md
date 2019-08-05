@@ -1,4 +1,10 @@
-# 调度器设计
+# 调度器总体设计
+
+## 调度器源码分段阅读目录
+- [调度器入口](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P1-%E8%B0%83%E5%BA%A6%E5%99%A8%E5%85%A5%E5%8F%A3%E7%AF%87.md)
+- 待补充
+
+## 概览
 首先列出官方md链接，讲解颇为生动：
 https://github.com/kubernetes/community/blob/master/contributors/devel/sig-scheduling/scheduler.md
 这里用结合自己阅读代码的理解做一下翻译。
@@ -73,6 +79,3 @@ Kubernetes scheduler独立运作与其他主要组件之外(例如API Server)，
 ### 修改调度策略
 默认调度策略是通过defaultPredicates() 和 defaultPriorities()这两个函数定义的，源码在 `pkg/scheduler/algorithmprovider/defaults/defaults.go`，我们可以通过命令行flag --policy-config-file CONFIG_FILE 来修改默认的调度策略。除此之外，也可以在`pkg/scheduler/algorithm/predicates/predicates.go` `pkg/scheduler/algorithm/priorities`源码中添加自定义的predicate和prioritie策略，然后注册到`defaultPredicates()`/`defaultPriorities()`中来实现自定义调度策略。
 
-## 调度器源码阅读目录
-- [初始化启动](https://note.youdao.com/)
-- 待补充

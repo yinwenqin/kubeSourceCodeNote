@@ -24,16 +24,18 @@ git checkout v1.14.3  # 切换到tag为v1.14.3的版本
 源码拉取完成后，用自己的IDE打开，准备工作完毕.
 
 ## 核心组件
-- [Scheduler](https://note.youdao.com/)
+- [Scheduler](https://github.com/yinwenqin/kubeSourceCodeNote)
 - Controller
 - 待补充
 - 
 
 ## Tips
-md文档已同步至github:
+md文档已同步至github,welcome star:
+https://github.com/yinwenqin/kubeSourceCodeNote
 
 Kubernetes这一整个项目颇为庞大，一般情况下，如果熟悉kubernetes的应用，结合应用来理解源码的设计理念会容易许多，因此，对其应用不熟悉的朋友，不建议直接阅读源码。另外，目前处于边阅读代码边输出总结的阶段，如文中有误，请予以指正，非常感谢！
 
+在此立一个flag，源码干货总结笔记，至少做到周不断更！
 
 
 
