@@ -2,6 +2,12 @@
 在熟悉kubernetes及常用组件、插件的管理使用后，总还觉得差了些什么，不够通透，是时候来读一读源码了，结合代码与实际使用场景来互相印证，有助于对kubernetes的理解更为透彻。这里将会分多篇介绍kubernetes各核心组件的工作模式、调度管理算法等。
 注:本系列文章，全部基于最近部署的v1.14.3版本的源码
 
+## 核心组件
+- [Scheduler](https://github.com/yinwenqin/kubeSourceCodeNote/tree/master/scheduler)
+- Controller
+- 待补充
+- 
+
 ## 环境准备
 golang(安装步骤略，网上很多),我的环境如下:
 
@@ -23,11 +29,6 @@ git checkout v1.14.3  # 切换到tag为v1.14.3的版本
 
 源码拉取完成后，用自己的IDE打开，准备工作完毕.
 
-## 核心组件
-- [Scheduler](https://github.com/yinwenqin/kubeSourceCodeNote/tree/master/scheduler)
-- Controller
-- 待补充
-- 
 
 ## Tips
 md文档已同步至github,welcome star:
