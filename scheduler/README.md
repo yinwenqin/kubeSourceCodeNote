@@ -2,7 +2,7 @@
 
 ## 调度器源码分段阅读目录
 - [调度器入口](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P1-%E8%B0%83%E5%BA%A6%E5%99%A8%E5%85%A5%E5%8F%A3%E7%AF%87.md)
-- 待补充
+- [调度器框架](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P1-%E8%B0%83%E5%BA%A6%E5%99%A8%E5%85%A5%E5%8F%A3%E7%AF%87.md)
 
 ## 概览
 首先列出官方md链接，讲解颇为生动：
