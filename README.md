@@ -1,6 +1,10 @@
 ## 前言
 在熟悉kubernetes及常用组件、插件的管理使用后，总还觉得差了些什么，不够通透，是时候来读一读源码了，结合代码与实际使用场景来互相印证，有助于对kubernetes的理解更为透彻。这里将会分多篇介绍kubernetes各核心组件的工作模式、调度管理算法等。
-注:本系列文章，全部基于最近部署的v1.14.3版本的源码
+
+
+## 版本
+
+Kubernetes v1.14.3 ,最新部署的一套环境是此版本，代码版本保持一致，方便后续测试调试
 
 ## 核心组件
 - [Scheduler](https://github.com/yinwenqin/kubeSourceCodeNote/tree/master/scheduler)
@@ -44,5 +48,5 @@ Kubernetes这一整个项目颇为庞大，一般情况下，如果熟悉kuberne
 1.官方开发者向导md文档: https://github.com/kubernetes/community/tree/master/contributors/devel
 
 2.http://hutao.tech/k8s-source-code-analysis/
- 
+
  

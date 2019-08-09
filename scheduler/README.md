@@ -3,6 +3,8 @@
 ## 调度器源码分段阅读目录
 - [调度器入口](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P1-%E8%B0%83%E5%BA%A6%E5%99%A8%E5%85%A5%E5%8F%A3%E7%AF%87.md)
 - [调度器框架](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P1-%E8%B0%83%E5%BA%A6%E5%99%A8%E5%85%A5%E5%8F%A3%E7%AF%87.md)
+- [调度器算法](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P1-%E8%B0%83%E5%BA%A6%E5%99%A8%E5%85%A5%E5%8F%A3%E7%AF%87.md)
+- 待补充
 
 ## 概览
 首先列出官方md链接，讲解颇为生动：
@@ -43,7 +45,7 @@ Kubernetes scheduler独立运作与其他主要组件之外(例如API Server)，
                         |
                         v
     +-------------------+-------------------------+
-    |             剩余可选 nodes:                |
+    |             剩余可选nodes:                   |
     |   +--------+                 +--------+     |
     |   | node 1 |                 | node 2 |     |
     |   +--------+                 +--------+     |
@@ -54,8 +56,8 @@ Kubernetes scheduler独立运作与其他主要组件之外(例如API Server)，
                         v
     +-------------------+-------------------------+
 
-    优先级判断:           node 1: priority=2
-                          node 2: priority=5
+    优先级判断:     node 1: priority=2
+                   node 2: priority=5
 
     +-------------------+-------------------------+
                         |
