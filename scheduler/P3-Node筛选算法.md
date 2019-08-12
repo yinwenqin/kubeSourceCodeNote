@@ -4,7 +4,7 @@
 
 在上一篇文档中，我们找到调度器筛选node的算法入口`pkg/scheduler/core/generic_scheduler.go:162` `Schedule()`方法
 
-[p2-调度器框架]([https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P2-%E8%B0%83%E5%BA%A6%E5%99%A8%E6%A1%86%E6%9E%B6.md](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P2-调度器框架.md))
+[p2-调度器框架](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P2-%E8%B0%83%E5%BA%A6%E5%99%A8%E6%A1%86%E6%9E%B6.md)
 
 那么在本篇，由此`Schedule()`函数展开，看一看调度器的node筛选算法，优先级排序算法留作下一篇.
 
