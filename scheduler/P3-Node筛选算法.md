@@ -10,7 +10,7 @@
 
 ## 正文
 
-Schedule()的核心是`findNodesThatFit()`方法 ,直接跳转过去:
+Schedule()的筛选算法核心是`findNodesThatFit()`方法 ,直接跳转过去:
 
 `pkg/scheduler/core/generic_scheduler.go:184` --> `pkg/scheduler/core/generic_scheduler.go:435`
 
