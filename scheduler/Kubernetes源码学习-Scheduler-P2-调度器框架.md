@@ -1,21 +1,10 @@
----
-title: "Kubernetes源码学习-Scheduler-P2-调度器框架"
-date: 2019/08/09 16:08:30
-tags: 
-- Kubernetes
-- Golang
-- 读源码
-
-
----
-
 ## 调度器框架
 
 ## 前言
 
 在上一篇文档中，我们找到了sheduler调度功能主逻辑的入口:
 
-[**P1-调度器入口篇**](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P1-%E8%B0%83%E5%BA%A6%E5%99%A8%E5%85%A5%E5%8F%A3%E7%AF%87.md)
+[**P1-调度器入口篇**](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/Kubernetes源码学习-Scheduler-P1-调度器入口篇.md)
 
 那么在本篇，我们基于找到的入口，来进入调度器框架内部，看一看整体的逻辑流程,本篇先跳过调度的算法(Predicates断言选择、Priority优先级排序)，只关注`pkg/scheduler`目录内的scheduler框架相关的逻辑流向，摸清scheduler框架本身的代码结构，调度算法留在后面的文章再谈
 

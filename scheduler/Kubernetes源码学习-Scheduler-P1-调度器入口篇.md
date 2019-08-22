@@ -1,17 +1,3 @@
----
-title: "Kubernetes源码学习-Scheduler-P1-调度器入口篇"
-date: 2019/08/05 16:27:53
-tags: 
-- Kubernetes
-- Golang
-- 读源码
-
-
-
----
-
-## 
-
 # 调度器入口
 
 ## 前言

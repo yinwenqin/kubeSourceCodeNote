@@ -4,7 +4,7 @@
 
 在上一篇文档中，我们过了一遍node筛选算法：
 
-[p3-Node筛选算法](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P3-Node%E7%AD%9B%E9%80%89%E7%AE%97%E6%B3%95.md)
+[p3-Node筛选算法](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/Kubernetes源码学习-Scheduler-P3-Node筛选算法.md)
 
 按调度规则设计，对筛选出的node，选择优先级最高的作为最终的fit node。那么本篇承接上一篇，进入下一步，看一看node优先级排序的过程。
 
