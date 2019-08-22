@@ -544,15 +544,16 @@ func countMatchingPods(namespace string, selectors []labels.Selector, nodeInfo *
 
 这里的计算方式概括一下:
 
-已知`Service/RC/RS/StatefulSet`这四种对pod进行管理的抽象高层级资源(后面统称高层级资源)，选择器都是通过label来匹配pod的，因此，这里将待调度pod的高层级资源的selector选择器依次列出，与node上现运行的pod中的每一个进行依次比较，每出现一次**待调度pod的selector，命中了某个现运行pod的标签**的情况，则视为匹配成功，加1分，未命中则不加分(这里的分数越高代表匹配到的现运行pod数量越多，则最终优先级得分应该越低，待会儿在reduce函数里我们可以印证)。
+已知`Service/RC/RS/StatefulSet`这四种对pod进行管理的抽象高层级资源(后面统称高层级资源)，选择器都是通过label来匹配pod的，因此，这里将待调度pod的高层级资源的selector选择器依次列出，与node上现运行的pod中的每一个进行依次比较，每出现一次**待调度pod的selector，命中了某个现运行pod的标签**的情况，则视为匹配成功，命中计数+1，未命中则不加计数(这里的计数越高代表匹配到的现运行pod数量越多，则最终优先级得分应该越低，待会儿在reduce函数里我们可以印证)。
 
 举个例子:
 
 - 假设待调度的为pod-a-1，node-a,node-b上现都运行有若干个pod
-- node-a其中有1个pod-a-2与pod-a-1属于同一个Service，那么，node-a得分为99分；
-- node-b中没有pod被pod-a-1的selector命中，则node-b得分为100分
+- node-a其中有1个pod-a-2与pod-a-1属于同一个Service，那么，node-a的count计数为1；
+- node-b中没有pod被pod-a-1的selector命中，则node-b的count计数为0
+- 计数越多，则对应的最终优先级得分应该越低，因此node-b的得分会比node-a高
 
-**map函数到这里就结束了，但这个得分显然还不能作为节点在此维度的最终得分，因此，下面还有reduce函数**
+**map函数到这里就结束了，但这个计数显然还不能作为节点在此维度的最终得分，因此，下面还有reduce函数**
 
 #### 4.1  Reduce函数
 
