@@ -1,11 +1,13 @@
 # 调度器总体设计
 
 ## 调度器源码分段阅读目录
-- [调度器入口](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P1-%E8%B0%83%E5%BA%A6%E5%99%A8%E5%85%A5%E5%8F%A3%E7%AF%87.md)
+- [调度器入口](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/Kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-Scheduler-P1-%E8%B0%83%E5%BA%A6%E5%99%A8%E5%85%A5%E5%8F%A3%E7%AF%87.md)
 
-- [调度器框架](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P2-%E8%B0%83%E5%BA%A6%E5%99%A8%E6%A1%86%E6%9E%B6.md)
+- [调度器框架](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/Kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-Scheduler-P2-%E8%B0%83%E5%BA%A6%E5%99%A8%E6%A1%86%E6%9E%B6.md)
 
-- [Node筛选算法](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P3-Node%E7%AD%9B%E9%80%89%E7%AE%97%E6%B3%95.md)
+- [Node筛选算法](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/Kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-Scheduler-P3-Node%E7%AD%9B%E9%80%89%E7%AE%97%E6%B3%95.md)
+
+- [Node优先级算法](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/Kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-Scheduler-P4-Node%E4%BC%98%E5%85%88%E7%BA%A7%E7%AE%97%E6%B3%95.md)
 
 - 待补充
 
