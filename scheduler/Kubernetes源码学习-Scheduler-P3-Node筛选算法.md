@@ -10,6 +10,8 @@
 
 ## 正文
 
+### 筛选算法入口
+
 Schedule()的筛选算法核心是`findNodesThatFit()`方法 ,直接跳转过去:
 
 `pkg/scheduler/core/generic_scheduler.go:184` --> `pkg/scheduler/core/generic_scheduler.go:435`
@@ -80,7 +82,9 @@ func (g *genericScheduler) findNodesThatFit(pod *v1.Pod, nodes []*v1.Node) ([]*v
 }
 ```
 
-这里一眼就可以看出核心匿名函数内的主体是`podFitsOnNode()`,但是并不是直接执行`podFitsOnNode()`函数，而是又封装了一层函数，这个函数的作用是在外层使用`nodeName := g.cache.NodeTree().Next()`来获取要判断的node主体，传递给`podFitsOnNode()`函数，而后对`podFitsOnNode`函数执行返回的结果进行处理。着眼于其下的并发处理实现:`workqueue.ParallelizeUntil(ctx, 16, int(allNodes), checkNode)`,就可以理解这样封装的好处了,来看看并发实现的内部吧:
+这里一眼就可以看出核心匿名函数内的主体是`podFitsOnNode()`,但是并不是直接执行`podFitsOnNode()`函数，而是又封装了一层函数，这个函数的作用是在外层使用`nodeName := g.cache.NodeTree().Next()`来获取要判断的node主体，传递给`podFitsOnNode()`函数，而后对`podFitsOnNode`函数执行返回的结果进行处理。着眼于其下的并发处理实现:`workqueue.ParallelizeUntil(ctx, 16, int(allNodes), checkNode)`,就可以理解这样封装的好处了,来看看并发实现的内部吧
+
+### 并发控制
 
 `vendor/k8s.io/client-go/util/workqueue/parallelizer.go:38`
 
@@ -231,11 +235,11 @@ func podFitsOnNode(
 
 图中`pkg/scheduler/core/generic_scheduler.go:608`位置正式开始了逐个计算筛选算法，那么筛选方法、筛选方法顺序在哪里呢？在上一篇[P2-框架篇]([https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P2-%E8%B0%83%E5%BA%A6%E5%99%A8%E6%A1%86%E6%9E%B6.md](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P2-调度器框架.md))中已经有讲过，默认调度算法都在`pkg/scheduler/algorithm/`路径下，我们接着往下看.
 
-**Predicates Ordering / Predicates  Function**
+### Predicates  Function
 
 筛选算法相关的`key/func/ordering`，全部集中在`pkg/scheduler/algorithm/predicates/predicates.go`这个文件中
 
-**筛选顺序**:
+#### 筛选顺序
 
 `pkg/scheduler/algorithm/predicates/predicates.go:142`
 
@@ -258,7 +262,7 @@ var (
 
 ![](http://pwh8f9az4.bkt.clouddn.com/predicates.jpg)
 
-**筛选key**
+#### 筛选key
 
 ```go
 const (
@@ -339,7 +343,7 @@ const (
 )
 ```
 
-**筛选Function**
+#### 筛选Function
 
 每个`predicate key`对应的`function name`一般为`${KEY}Predicate`,function的内容其实都比较简单,不一一介绍了，自行查看，这里仅列举一个:
 
@@ -371,7 +375,7 @@ func CheckNodeMemoryPressurePredicate(pod *v1.Pod, meta PredicateMetadata, nodeI
 
 筛选算法过程到这里就已然清晰明了！
 
-### 重点回顾
+## 重点回顾
 
 筛选算法代码中的几个不易理解的点(亮点?)圈出:
 

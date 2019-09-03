@@ -142,7 +142,7 @@ delete pods: pod1
 
 ```
 
-#### 看到这里，相信对cobra的强大简洁已经有了初步的认知，建议自行进入项目主页了解详情并进行安装测试
+** 看到这里，相信对cobra的强大简洁已经有了初步的认知，建议自行进入项目主页了解详情并进行安装测试**
 
 ## 入口
 通过对上方cobra的基本了解，我们不难知道，`cmd/kube-scheduler/scheduler.go`内的main()方法内部实际调用的是`cobra.Command.Run`内的匿名函数，我们可以进入`NewSchedulerCommand()`内部确认:
@@ -181,8 +181,15 @@ Broadcaster     record.EventBroadcaster
 ![image](http://pwh8f9az4.bkt.clouddn.com/scheRun.jpg)
 
 `wait.Until`这个调用的逻辑是，直到收到stop信号才终止，在此之前循环运行`sched.scheduleOne`。代码走到这里，终于找到启动入口最内部的主体啦:
-![image](http://pwh8f9az4.bkt.clouddn.com/scheduleOne.jpg)
 
-`sched.scheduleOne`这个函数有代码点长，整体的功能可以概括为:获取需调度的pod、寻找匹配node、发起绑定到node请求、绑定检查等一系列操作.
+![](http://pwh8f9az4.bkt.clouddn.com/image-20190827163439895.png)
 
-#### 本篇入口篇到这里就先告一段落，下一篇开始阅读学习调度过程的逻辑！
+`sched.scheduleOne`这个函数有代码点长，整体的功能可以概括为:
+
+1.获取需调度的pod
+
+2.使用调度算法寻找匹配node、发起绑定到node请求、绑定检查等一系列操作.
+
+3.若匹配node失败，则尝试根据pod的指定优先级来抢占资源
+
+**本篇入口篇到这里就先告一段落，下一篇开始阅读学习调度过程的逻辑！**
