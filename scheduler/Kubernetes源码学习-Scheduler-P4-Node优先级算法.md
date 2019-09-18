@@ -18,7 +18,7 @@ Tips: 本篇篇幅较长，因调度优选算法较为复杂，但请耐心结�
 
 同上一篇，回到`pkg/scheduler/core/generic_scheduler.go`中的`Schedule()`函数，`pkg/scheduler/core/generic_scheduler.go:184`:
 
-![](http://pwh8f9az4.bkt.clouddn.com/20190822165920.png)
+![](http://mycloudn.kokoerp.com/20190822165920.png)
 
 截图中有几处标注，metric相关的几行，是收集metric信息，用以提供给prometheus使用的，kubernetes的几个核心组件都有这个功能，以后如果读prometheus的源码，这个单独拎出来再讲。直接进入优先级函数`PrioritizeNodes()`内部`pkg/scheduler/core/generic_scheduler.go:215`
 
@@ -201,7 +201,7 @@ func defaultPriorities() sets.String {
 
 在注册的每一个计算维度，都有专属的维度描述关键字，即factory方法的第一个参数(str类型)。不难发现，这里的每一个关键字，`pkg/scheduler/algorithm/priorities`目录内都有与其对应的文件,图中圈出了几个例子(灵魂画笔请原谅):
 
-![](http://pwh8f9az4.bkt.clouddn.com/image-20190821171031395.png)
+![](http://mycloudn.kokoerp.com/image-20190821171031395.png)
 
 显而易见，维度计算的内容就在这些文件中，可以自行通过编辑器的跳转功能逐级查看进行验证.
 
@@ -239,7 +239,7 @@ func CalculateNodePreferAvoidPodsPriorityMap(pod *v1.Pod, meta interface{}, node
 
 这也印证了前面说的当前仅剩pod亲和性这一个维度在使用传统的Function,虽然已经被DEPRECATED掉了，传统的Function是直接计算出结果，Map-Reduce是将这个过程解耦拆成了两个步骤，且我们可以看到所有的factory函数，很多形参`reduceFunction`接收到的实参实际是是`nil`:
 
-![](http://pwh8f9az4.bkt.clouddn.com/image-20190822111624614.png)
+![](http://mycloudn.kokoerp.com/image-20190822111624614.png)
 
 这就说明这些维度的计算工作在map函数里面已经执行完成了，不需要再执行reduce函数了。因此，传统的Function的计算过程同样值得参考，那么首先就来看看`InterPodAffinityPriority`维度是怎么计算的吧!
 
