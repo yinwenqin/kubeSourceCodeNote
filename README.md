@@ -8,7 +8,7 @@ Kubernetes v1.14.3 ,最新部署的一套环境是此版本，代码版本保持
 
 ## 核心组件
 - [Scheduler](https://github.com/yinwenqin/kubeSourceCodeNote/tree/master/scheduler)
-- Controller
+- [Controller](https://github.com/yinwenqin/kubeSourceCodeNote/tree/master/controller)
 - 待补充
 - 
 
