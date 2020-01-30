@@ -1,3 +1,15 @@
+---
+title: "Kubernetes源码学习-Controller-P3-Controller分类与Deployment Controller"
+date: 2020/01/30 15:59:53
+tags:
+- Kubernetes
+- Golang
+- 读源码
+
+
+
+---
+
 # P3-Controller分类与Deployment Controller
 
 
@@ -6,13 +18,13 @@
 
 Controller部分的第一篇文章中，我们从cobra启动命令入口开始，进入到了多实例leader选举部分的代码，对leader选举流程做了详细地分析：
 
-
+[Controller-P1-多实例leader选举](https://blog.upweto.top/gitbooks/kubeSourceCodeNote/controller/Kubernetes源码学习-Controller-P1-多实例leader选举.html)
 
 接着在第二篇中，文字和图解简单描述了controller是如何结合client-go模块中的informer工作的，为本篇及后面的几篇作铺垫：
 
+[Controller-P2-Controller与informer](https://blog.upweto.top/gitbooks/kubeSourceCodeNote/controller/Kubernetes源码学习-Controller-P2-Controller与informer.html)
 
-
-那么本篇，就接着第一篇往下，继续代码分析。
+那么本篇，就接着第一篇往下，继续看代码。
 
 
 
@@ -757,7 +769,7 @@ DeploymentCondition在这里面反复出现，便于理解，参照一个正常�
 
 Deployment的回滚、扩(缩)容、暂停、更新等操作，主要是通过修改rs来完成的。其中，rs的版本控制、replicas数量控制是其最核心也是难以理解的地方，但是只要记住99%的时间里deployment对应的活跃的rs只有一个，只有更新时才会出现2个rs，极少数情况下(短时间重复更新)才会出现2个以上的rs，对于上面源码的理解就会容易许多。
 
-另外，从上面我们也可以发现，deployment的更新实际基本不涉及对pod的直接操作，因此，本章后续的章节会分析一下replicaSet controller是怎么和pod进行管理交互的。
+另外，从上面这么多步骤的拆解也可以发现，deployment的更新实际基本不涉及对pod的直接操作，因此，本章后续的章节会分析一下replicaSet controller是怎么和pod进行管理交互的。
 
 
 
