@@ -1,20 +1,9 @@
----
-title: "Kubernetes源码学习-Controller-总览篇"
-date: 2019/12/05 19:15:49
-tags: 
-- Kubernetes
-- Golang
-- 读源码
+## Controller源码分段阅读导航
 
-
----
-
-##Controller源码分段阅读导航
-
-- [多实例leader选举]()
-- [Informer工作流程]()
-- [Deployment Controller]()
-- [StafulSet Controller]()
+- [多实例leader选举]([https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-Controller-P1-%E5%A4%9A%E5%AE%9E%E4%BE%8Bleader%E9%80%89%E4%B8%BE.md](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P1-多实例leader选举.md))
+- [Kubernetes源码学习-Controller-P2-Controller与informer](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P2-Controller与informer.md)
+- [Kubernetes源码学习-Controller-P3-Controller分类与Deployment Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P3-Controller分类与Deployment Controller.md)
+- [StafulSet Controller]
 - 待补充
 
 ## 概述
@@ -33,7 +22,7 @@ https://github.com/kubernetes/community/blob/master/contributors/design-proposal
 
 **Controller是做什么用的？**
 
-Controller通过watch apiServer，循环地观察监控着某些特定的资源对象，获取它们当前的状态，对它们进行对比、修正、收敛，来使这些对象的状态不断靠近、直至达成在它们的声明语义中所期望的目标状态，这即是controller的作用。
+Controller通过watch apiServer，循环地观察监控着某些特定的资源对象，获取它们当前的状态，对它们进行对比、修正、收敛，来使这些对象的状态不断靠近、直至达成在它们的声明语义中所期望的目标状态，这即是controller的作用。再通俗点来说，就是使资源对象的status当前状态达到spec的期望状态。
 
 **伪代码**
 
