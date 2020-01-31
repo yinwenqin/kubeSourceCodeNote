@@ -1,8 +1,8 @@
 ## Controller源码分段阅读导航
 
-- [多实例leader选举]([https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-Controller-P1-%E5%A4%9A%E5%AE%9E%E4%BE%8Bleader%E9%80%89%E4%B8%BE.md](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P1-多实例leader选举.md))
-- [Kubernetes源码学习-Controller-P2-Controller与informer](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P2-Controller与informer.md)
-- [Kubernetes源码学习-Controller-P3-Controller分类与Deployment Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P3-Controller分类与Deployment Controller.md)
+- [多实例leader选举](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P1-多实例leader选举.md)
+- [Controller与informer](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P2-Controller与informer.md)
+- [Controller分类与Deployment Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P3-Controller分类与Deployment Controller.md)
 - [StafulSet Controller]
 - 待补充
 

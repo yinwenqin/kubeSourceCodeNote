@@ -1,15 +1,3 @@
----
-title: "Kubernetes源码学习-Controller-P3-Controller分类与Deployment Controller"
-date: 2020/01/30 15:59:53
-tags:
-- Kubernetes
-- Golang
-- 读源码
-
-
-
----
-
 # P3-Controller分类与Deployment Controller
 
 
