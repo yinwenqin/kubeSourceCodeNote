@@ -4,7 +4,7 @@
 
 在上一篇文章中，对deployment controller的工作模式进行了详细地分析:
 
-[Controller-P3-Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P3-Controller分类与Deployment Controller.md)
+[Controller-P3-Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P3-Controller分类与Deployment%20Controller.md)
 
 分析后得知，deployment controller更多的是对每个相应版本的replicaset副本数进行管理，而不涉及直接对pod的管理，因此，承接上节，本章来分析replicaSet Controller的源码.
 

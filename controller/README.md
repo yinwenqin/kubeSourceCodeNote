@@ -4,11 +4,11 @@
 
 - [Controller与informer](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P2-Controller与informer.md)
 
-- [Controller分类与Deployment Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P3-Controller分类与Deployment Controller.md)
+- [Controller分类与Deployment Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P3-Controller分类与Deployment%20Controller.md)
 
-- [ReplicaSet Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P4-ReplicaSet Controller.md)
+- [ReplicaSet Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P4-ReplicaSet%20Controller.md)
 
-- [StatefulSet Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P5-StatefulSet Controller.md)
+- [StatefulSet Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P5-StatefulSet%20Controller.md)
 
   
 

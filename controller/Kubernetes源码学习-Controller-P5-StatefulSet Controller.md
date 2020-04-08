@@ -4,11 +4,11 @@
 
 在前面的几篇文章中，先对deployment controller进行了初步分析:
 
-[Controller-P3-Deployment Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P3-Controller分类与Deployment Controller.md)
+[Controller-P3-Deployment Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P3-Controller分类与Deployment%20Controller.md)
 
 严格来讲deployment的管理pod的逻辑是基于replicaSet来实现的，因此接下来结合replicaSet controller进行了深入:
 
-[Controller-P3-ReplicaSet Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P4-ReplicaSet Controller.md)
+[Controller-P3-ReplicaSet Controller](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/controller/Kubernetes源码学习-Controller-P4-ReplicaSet%20Controller.md)
 
 那么在本篇，来看看另一个最常用的承载在pod之上的管理单位的控制器实现: **StatefulSet Controller**
 
