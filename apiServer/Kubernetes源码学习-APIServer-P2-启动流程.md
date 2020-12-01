@@ -292,19 +292,19 @@ https://swagger.io/specification/#introduction
 
 APIServer支持如下的认证策略：
 
-- ### X509 Client Certs
+- X509 Client Certs
 
-- ### Static Token File
+- Static Token File
 
-- ### Bootstrap Tokens
+- Bootstrap Tokens
 
-- ### Service Account Tokens
+- Service Account Tokens
 
-- ### OpenID Connect Tokens(OIDC)
+- OpenID Connect Tokens(OIDC)
 
-- ### Webhook Token Authentication
+- Webhook Token Authentication
 
-- ### Authenticating Proxy
+- Authenticating Proxy
 
 参考官方文档：
 
@@ -523,17 +523,19 @@ func New(authRequestHandlers ...authenticator.Request) authenticator.Request {
 
 APIServer支持如下的授权策略：
 
-- ### AlwaysAllow
+- AlwaysAllow
 
-- ### AlwaysDeny
+- AlwaysDeny
 
-- ### webhook授权
+- webhook授权
 
-- ### node授权
+- node授权
 
-- ### ABAC授权
+- ABAC授权
 
-- ### RBAC授权
+- RBAC授权
+
+
 
 参考官方文档：
 
