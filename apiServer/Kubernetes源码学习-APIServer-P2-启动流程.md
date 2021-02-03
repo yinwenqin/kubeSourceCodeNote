@@ -484,7 +484,7 @@ func (config Config) New() (authenticator.Request, *spec.SecurityDefinitions, er
 
 这个New()方法依次生成每一种认证方式的Authenticator，New()方法的流程图如下：
 
-<img src="https://mycloudn.upweto.top/20201130153857.png" style="zoom:50%;" />
+![](https://mycloudn.upweto.top/20210202145027.png)
 
 `union.New(authenticators...)`方法集合所有的认证器
 
