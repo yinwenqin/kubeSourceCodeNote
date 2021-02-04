@@ -45,7 +45,7 @@ Kubernetes 仅审查以下 API 请求属性：
 
 来看看现有的kubeadm部署集群启用的鉴权策略:
 
-![image-20210203155656149](/Users/ywq/Library/Application Support/typora-user-images/image-20210203155656149.png)
+![](https://mycloudn.upweto.top/20210203155452.png)
 
 可以看到，默认启用了Node授权和RBAC授权模块。
 
