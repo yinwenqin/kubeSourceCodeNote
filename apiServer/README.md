@@ -6,9 +6,9 @@
 
 - [APIServer的启动流程](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/apiServer/Kubernetes源码学习-APIServer-P2-启动流程.md)
 
-- [APIServer的认证机制](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/apiServer/Kubernetes源码学习-APIServer-P3-APIServer的认证控制.md)
+- [APIServer的认证机制](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/apiServer/Kubernetes源码学习-APIServer-P3-APIServer的认证机制.md)
 
-- [APIServer的授权机制](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/apiServer/Kubernetes源码学习-APIServer-P4-APIServer的授权控制.md)
+- [APIServer的鉴权机制](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/apiServer/Kubernetes源码学习-APIServer-P4-APIServer的鉴权机制.md)
 
   
 
