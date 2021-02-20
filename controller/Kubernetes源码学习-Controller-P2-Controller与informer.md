@@ -34,7 +34,7 @@ watch依然比较麻烦，毕竟list获取的数据以及后续watch到的数据
 
 #### 工作流程图
 
-![](http://mycloudn.kokoerp.com/20191218161137.png)
+![](http://mycloudn.upweto.top/20191218161137.png)
 
 #### 流程图组件解释
 

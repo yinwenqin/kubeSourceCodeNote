@@ -49,7 +49,7 @@ for {
 
 kube-controller是一个控制组件，根据我们的使用经验，有多种经常使用的资源，都不是实际地直接进行任务计算的资源类型，而在申明之后由k8s自动发现并保证以达成申明语义状态的逻辑资源，例如deployment、statefulSet、pvc、endpoint等，这些资源都分别由对应的controller子组件，那么这样的controller子组件有多少呢？如下图：
 
-![](http://mycloudn.kokoerp.com/20191206111312.jpg)
+![](http://mycloudn.upweto.top/20191206111312.jpg)
 
 可见controller的组件数量是非常之多的，因此在本部分中计划只抽选其中的deploymentController和statefulSetController这两种常见的对pod管理类型资源对应的controller来进行源码分析。
 
@@ -59,11 +59,11 @@ kube-controller是一个控制组件，根据我们的使用经验，有多种�
 
 `kubernetes/src/k8s.io/kubernetes/cmd/kube-controller-manager/controller-manager.go`
 
-![](http://mycloudn.kokoerp.com/20191206153026.jpg)
+![](http://mycloudn.upweto.top/20191206153026.jpg)
 
 **功能模块**
 
 `kubernetes/src/k8s.io/kubernetes/pkg/controller`
 
-![](http://mycloudn.kokoerp.com/20191206154051.jpg)
+![](http://mycloudn.upweto.top/20191206154051.jpg)
 

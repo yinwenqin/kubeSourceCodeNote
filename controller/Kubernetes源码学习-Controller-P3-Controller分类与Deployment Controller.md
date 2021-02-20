@@ -38,7 +38,7 @@ if err := StartControllers(controllerContext, saTokenControllerInitFunc, NewCont
 
 ==> `cmd/kube-controller-manager/app/controllermanager.go:343`
 
-<img src="http://mycloudn.kokoerp.com/20200127122642.png" style="zoom:80%;" />
+<img src="http://mycloudn.upweto.top/20200127122642.png" style="zoom:80%;" />
 
 可以看到，controller会对不同的资源，分别初始化相应的controller，包含我们常见的deployment、statefulset、endpoint、pvc等等资源，controller种类有多达30余个。因此，在controller整个章节中，不会对它们逐一分析，只会抽取几个常见有代表性地进行深入，本篇就来看看deployment controller吧。
 
@@ -745,7 +745,7 @@ func (dc *DeploymentController) syncRolloutStatus(allRSs []*apps.ReplicaSet, new
 
 DeploymentCondition在这里面反复出现，便于理解，参照一个正常状态的deployment condition样例:
 
-<img src="http://mycloudn.kokoerp.com/20200130125357.png" style="zoom:50%;" />
+<img src="http://mycloudn.upweto.top/20200130125357.png" style="zoom:50%;" />
 
 #### 总结
 

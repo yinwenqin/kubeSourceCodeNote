@@ -145,7 +145,7 @@ ParallelizeUntil()的这种实现方式，可以很好地将并发实现和具�
 
 `pkg/scheduler/core/generic_scheduler.go:460 --> pkg/scheduler/internal/cache/node_tree.go:161`
 
-![](http://mycloudn.kokoerp.com/zone.jpg)
+![](http://mycloudn.upweto.top/zone.jpg)
 
 可以看到，这里有一个zone的逻辑层级，这个层级仿佛没有见过，google了一番才了解了这个颇为冷门的功能：这是一个轻量级的支持集群联邦特性的实现，单个cluster可以属于多个zone，但这个功能目前只有GCE和AWS支持，且绝大多数的使用场景也用不到，可以说是颇为冷门。默认情况下，cluster只属于一个zone，可以理解为cluster和zone是同层级，因此后面见到有关zone相关的层级，我们直接越过它。有兴趣的朋友可以了解一下zone的概念:
 
@@ -231,7 +231,7 @@ func podFitsOnNode(
 
 有了以上理解，我们接着看代码，图中已注释:
 
-![](http://mycloudn.kokoerp.com/podFitsOnNode.jpg)
+![](http://mycloudn.upweto.top/podFitsOnNode.jpg)
 
 图中`pkg/scheduler/core/generic_scheduler.go:608`位置正式开始了逐个计算筛选算法，那么筛选方法、筛选方法顺序在哪里呢？在上一篇[P2-框架篇]([https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P2-%E8%B0%83%E5%BA%A6%E5%99%A8%E6%A1%86%E6%9E%B6.md](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/scheduler/P2-调度器框架.md))中已经有讲过，默认调度算法都在`pkg/scheduler/algorithm/`路径下，我们接着往下看.
 
@@ -260,7 +260,7 @@ var (
 
 [链接](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/predicates-ordering.md)
 
-![](http://mycloudn.kokoerp.com/predicates.jpg)
+![](http://mycloudn.upweto.top/predicates.jpg)
 
 #### 筛选key
 
