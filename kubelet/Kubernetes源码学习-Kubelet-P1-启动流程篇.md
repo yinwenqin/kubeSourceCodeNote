@@ -768,7 +768,9 @@ func startKubelet(k kubelet.Bootstrap, podCfg *config.PodConfig, kubeCfg *kubele
 }
 ```
 
-wait.Until()循环执行函数前面的文章中已经分析过多次了，不再赘述，来分析一下k.Run(podCfg.Updates())传的实参是什么:
+wait.Until()循环执行函数前面的文章中已经分析过多次了，不再过多赘述，这里传参是period是0，说明是无间隔死循环调用k.Run()方法，体现在实际环境中kubelet运行时的表现就是：无论运行中遇到什么报错，kubelet都会持续工作。
+
+来分析一下k.Run(podCfg.Updates())传的实参是什么:
 
 --> `pkg/kubelet/config/config.go:105`
 

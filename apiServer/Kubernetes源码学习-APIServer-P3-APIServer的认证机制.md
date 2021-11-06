@@ -39,7 +39,7 @@ Kubernetes 使用身份认证插件利用客户端证书、持有者令牌（Bea
 
 首先为了加深印象，再贴一下上一章列出的认证流程图：
 
-![](https://mycloudn.upweto.top/20210203112246.png)
+![](https://mycloudn.wqyin.cn/20210203112246.png)
 
 >  注：认证器的执行顺序为随机的，图中流向不代表固定顺序
 
@@ -94,7 +94,7 @@ func WithAuthentication(handler http.Handler, auth authenticator.Request, failed
 
 `vendor/k8s.io/apiserver/pkg/authentication/authenticator/interfaces.go:35`
 
-![](https://mycloudn.upweto.top/20210202115500.png)
+![](https://mycloudn.wqyin.cn/20210202115500.png)
 
 引用中的union.go中，聚合了所有的Authenticator链，进去看看
 
@@ -126,7 +126,7 @@ func (authHandler *unionAuthRequestHandler) AuthenticateRequest(req *http.Reques
 
 apiserver的各种request相关定义代码大多集中在这个目录里：
 
-<img src="https://mycloudn.upweto.top/20210202145632.png" style="zoom:70%;" />
+<img src="https://mycloudn.wqyin.cn/20210202145632.png" style="zoom:70%;" />
 
 那么依次逐个来看看每一种Authenticator对应的AuthenticateRequest方法。
 
@@ -192,7 +192,7 @@ extra:
 
 使用kubeadm默认部署的集群，就启用了requestheader的配置：
 
-![](https://mycloudn.upweto.top/20210202163330.png)
+![](https://mycloudn.wqyin.cn/20210202163330.png)
 
 来看看AuthenticateRequest方法的代码：
 
@@ -500,7 +500,7 @@ SA是一种面向集群内部应用需要调用APIServer的场景所设计的认
 
 在集群上找一个例子，以kube-proxy举例：
 
-![](https://mycloudn.upweto.top/20210203103806.png)
+![](https://mycloudn.wqyin.cn/20210203103806.png)
 
 看看代码层面：
 

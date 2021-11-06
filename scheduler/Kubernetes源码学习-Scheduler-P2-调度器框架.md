@@ -12,15 +12,15 @@
 
 回顾上一篇篇末，我们找到了调度框架的实际调度工作逻辑的入口位置，`pkg/scheduler/scheduler.go:435`, `scheduleOne()`函数内部，定位在`pkg/scheduler/scheduler.go:457`位置,是通过这个`sched.schedule(pod)`方法来获取与pod匹配的node的，我们直接跳转2次,来到了这里`pkg/scheduler/core/generic_scheduler.go:107`
 
-![](http://mycloudn.upweto.top/schedule.jpg)
+![](http://mycloudn.wqyin.cn/schedule.jpg)
 
-![](http://mycloudn.upweto.top/AlgSchedule.jpg)
+![](http://mycloudn.wqyin.cn/AlgSchedule.jpg)
 
-![](http://mycloudn.upweto.top/scheduleStruct.jpg)
+![](http://mycloudn.wqyin.cn/scheduleStruct.jpg)
 
 通过注释可以知道，ScheduleAlgorithm interface中的Schedule方法就是用来为pod筛选node的，但这是个接口方法，并不是实际调用的，我们稍微往下,在`pkg/scheduler/core/generic_scheduler.go:162`这个位置，就可以找到实际调用的Schedule方法:
 
-![](http://mycloudn.upweto.top/genericSchedule.jpg)
+![](http://mycloudn.wqyin.cn/genericSchedule.jpg)
 
 这个函数里面有4个重要的步骤:
 
@@ -46,41 +46,41 @@ g.selectHost(priorityList)
 
 先来逆向回溯代码结构，找到哪里创建了scheduler，调度器的默认初始化配置，默认的调度算法来源等等框架相关的东西。`Schedule()`方法属于`genericScheduler`结构体，先查看`genericScheduler`结构体，再选中结构体名称，crtl + b组合键查看它在哪些地方被引用，找出创建结构体的位置:
 
-![](http://mycloudn.upweto.top/createGenSche.jpg)
+![](http://mycloudn.wqyin.cn/createGenSche.jpg)
 
 通过缩略代码框，排除test相关的测试文件，很容易找出创建结构体的地方位于`pkg/scheduler/core/generic_scheduler.go:1189`，点击图中红框圈中位置，跳转过去，果然找到了`NewGenericScheduler()`方法，这个方法是用来创建一个`genericScheduler`对象的，那么我们再次crtl + b组合键查看`NewGenericScheduler`再什么地方被调用：
 
-![](http://mycloudn.upweto.top/newGenericScheduler.jpg)
+![](http://mycloudn.wqyin.cn/newGenericScheduler.jpg)
 
 找出了在`pkg/scheduler/factory/factory.go:441`这个位置上找到了调用入口，这里位于`CreateFromKeys()`方法中，继续crtl + b查看它的引用,跳转到`pkg/scheduler/factory/factory.go:336`这个位置：
 
-![](http://mycloudn.upweto.top/newGenericScheduler.jpg)
+![](http://mycloudn.wqyin.cn/newGenericScheduler.jpg)
 
-![](http://mycloudn.upweto.top/createFromProvider.jpg)
+![](http://mycloudn.wqyin.cn/createFromProvider.jpg)
 
-![](http://mycloudn.upweto.top/getAlgorithmProvider.jpg)
+![](http://mycloudn.wqyin.cn/getAlgorithmProvider.jpg)
 
 这里找到了`algorithmProviderMap`这个变量，顾名思义，这个变量里面包含的应该就是调度算法的来源,点击进去查看,跳转到了`pkg/scheduler/factory/plugins.go:86`这个位置,组合键查看引用，一眼就可以看出哪个引用为这个map添加了元素：
 
-![](http://mycloudn.upweto.top/addMapEle.jpg)
+![](http://mycloudn.wqyin.cn/addMapEle.jpg)
 
 跳转过去，来到了`pkg/scheduler/factory/plugins.go:391`这个位置，这个函数的作用是为scheduler的配置指定调度算法，即`FitPredicate、Priority`这两个算法需要用到的metric或者方法,再次请出组合键，查找哪个地方调用了这个方法：
 
-![](http://mycloudn.upweto.top/registerAlgorithmProvider.jpg)
+![](http://mycloudn.wqyin.cn/registerAlgorithmProvider.jpg)
 
 来到了`pkg/scheduler/algorithmprovider/defaults/defaults.go:99`，继续组合键向上查找引用,这次引用只有一个，没有弹窗直接跳转过去了`pkg/scheduler/algorithmprovider/defaults/defaults.go:36`:
 
-![](http://mycloudn.upweto.top/registerAlgorithmProvider1.jpg)
+![](http://mycloudn.wqyin.cn/registerAlgorithmProvider1.jpg)
 
-![](http://mycloudn.upweto.top/init.jpg)
+![](http://mycloudn.wqyin.cn/init.jpg)
 
 我们来看看`defaultPredicates(), defaultPriorities()`这两个函数具体的内容:
 
-![](http://mycloudn.upweto.top/default.jpg)
+![](http://mycloudn.wqyin.cn/default.jpg)
 
 我们随便点击进去一个`predicates`选项查看其内容:
 
-![](http://mycloudn.upweto.top/memPressure.jpg)
+![](http://mycloudn.wqyin.cn/memPressure.jpg)
 
 `CheckNodeMemoryPressure`这个词相应熟悉kubernetes 应用的朋友一定不会陌生，例如在node内存压力大无法调度的pod时，`kubectl describe pod xxx`就会在状态信息里面看到这个关键词。
 
@@ -103,7 +103,7 @@ func RegisterAlgorithmProvider(name string, predicateKeys, priorityKeys sets.Str
 
 可以看到，这个方法为DefaultProvider绑定了配置：筛选算法和优先级排序算法的key集合，这些key只是字符串，那么是怎么具体落实到计算的方法过程上去的呢？让我们看看`pkg/scheduler/algorithmprovider/defaults/`目录下的`register_predicates.go,register_priorities.go`这两个文件:
 
-![](http://mycloudn.upweto.top/preinit.jpg)
+![](http://mycloudn.wqyin.cn/preinit.jpg)
 
 它们同样也在init()函数中初始化时使用`factory.RegisterFitPredicate()`方法做了一些注册操作,这个方法的两个参数，前一个是筛选/计算优先级 的关键key名，后一个是具体计算的功能实现方法，点击`factory.RegisterFitPredicate()`方法，深入一级，查看内部代码，
 
@@ -177,15 +177,15 @@ func (s *Scheme) AddTypeDefaultingFunc(srcType Object, fn func(interface{})) {
 
 我们选中然后ctrl+b，查找AddTypeDefaultingFunc()的引用，弹窗中你可以看到有非常非常多的对象都引用了该方法，这些不同类型的对象相信无一例外都是通过Default()方法来生成默认配置的，我们找到其中的包含scheduler的方法:
 
-![](http://mycloudn.upweto.top/addDefaultFunc.jpg)
+![](http://mycloudn.wqyin.cn/addDefaultFunc.jpg)
 
 跳转进去，来到了这个位置`pkg/scheduler/apis/config/v1alpha1/zz_generated.defaults.go:31`(原谅我的灵魂笔法):
 
-![](http://mycloudn.upweto.top/registerDefaults.jpg)
+![](http://mycloudn.wqyin.cn/registerDefaults.jpg)
 
 进入`SetDefaults_KubeSchedulerConfiguration()`，来到`pkg/scheduler/apis/config/v1alpha1/defaults.go:42`:
 
-![](http://mycloudn.upweto.top/SetDefaults_KubeSchedulerConfiguration.jpg)
+![](http://mycloudn.wqyin.cn/SetDefaults_KubeSchedulerConfiguration.jpg)
 
 看到了`DefaultProvider`吗？是不是觉得瞬间豁然开朗，原来是在这里调用指定了scheduler配置的`AlgorithmSource.Provider`。
 
@@ -276,7 +276,7 @@ func podFitsOnNode(
 
 最后，对`pkg/scheduler`路径下的各子目录的功能来一个图文总结吧:
 
-![](http://mycloudn.upweto.top/dir.jpg)
+![](http://mycloudn.wqyin.cn/dir.jpg)
 
 
 

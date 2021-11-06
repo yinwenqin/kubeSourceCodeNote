@@ -45,7 +45,7 @@ Kubernetes 仅审查以下 API 请求属性：
 
 来看看现有的kubeadm部署集群启用的鉴权策略:
 
-![](https://mycloudn.upweto.top/20210203155452.png)
+![](https://mycloudn.wqyin.cn/20210203155452.png)
 
 可以看到，默认启用了Node授权和RBAC授权模块。
 
@@ -132,7 +132,7 @@ DefaultResourceRuleInfo{
 
 ### 鉴权流程图
 
-![](https://mycloudn.upweto.top/20210203180748.png)
+![](https://mycloudn.wqyin.cn/20210203180748.png)
 
 
 
@@ -218,7 +218,7 @@ RBAC 鉴权机制使用 `rbac.authorization.k8s.io` [API 组](https://kubernetes
 
 RBAC模式的详细描述和使用样例请参考我之前的文章：
 
-[k8s(十四)、RBAC权限控制](https://blog.upweto.top/2018/12/06/k8s(%E5%8D%81%E5%9B%9B)%E3%80%81RBAC%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6.html)
+[k8s(十四)、RBAC权限控制](https://blog.wqyin.cn/2018/12/06/k8s(%E5%8D%81%E5%9B%9B)%E3%80%81RBAC%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6.html)
 
 
 

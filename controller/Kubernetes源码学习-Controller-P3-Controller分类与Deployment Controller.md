@@ -6,11 +6,11 @@
 
 Controller部分的第一篇文章中，我们从cobra启动命令入口开始，进入到了多实例leader选举部分的代码，对leader选举流程做了详细地分析：
 
-[Controller-P1-多实例leader选举](https://blog.upweto.top/gitbooks/kubeSourceCodeNote/controller/Kubernetes源码学习-Controller-P1-多实例leader选举.html)
+[Controller-P1-多实例leader选举](https://blog.wqyin.cn/gitbooks/kubeSourceCodeNote/controller/Kubernetes源码学习-Controller-P1-多实例leader选举.html)
 
 接着在第二篇中，文字和图解简单描述了controller是如何结合client-go模块中的informer工作的，为本篇及后面的几篇作铺垫：
 
-[Controller-P2-Controller与informer](https://blog.upweto.top/gitbooks/kubeSourceCodeNote/controller/Kubernetes源码学习-Controller-P2-Controller与informer.html)
+[Controller-P2-Controller与informer](https://blog.wqyin.cn/gitbooks/kubeSourceCodeNote/controller/Kubernetes源码学习-Controller-P2-Controller与informer.html)
 
 那么本篇，就接着第一篇往下，继续看代码。
 
@@ -38,7 +38,7 @@ if err := StartControllers(controllerContext, saTokenControllerInitFunc, NewCont
 
 ==> `cmd/kube-controller-manager/app/controllermanager.go:343`
 
-<img src="http://mycloudn.upweto.top/20200127122642.png" style="zoom:80%;" />
+<img src="http://mycloudn.wqyin.cn/20200127122642.png" style="zoom:80%;" />
 
 可以看到，controller会对不同的资源，分别初始化相应的controller，包含我们常见的deployment、statefulset、endpoint、pvc等等资源，controller种类有多达30余个。因此，在controller整个章节中，不会对它们逐一分析，只会抽取几个常见有代表性地进行深入，本篇就来看看deployment controller吧。
 
@@ -745,7 +745,7 @@ func (dc *DeploymentController) syncRolloutStatus(allRSs []*apps.ReplicaSet, new
 
 DeploymentCondition在这里面反复出现，便于理解，参照一个正常状态的deployment condition样例:
 
-<img src="http://mycloudn.upweto.top/20200130125357.png" style="zoom:50%;" />
+<img src="http://mycloudn.wqyin.cn/20200130125357.png" style="zoom:50%;" />
 
 #### 总结
 

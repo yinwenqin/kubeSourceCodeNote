@@ -28,7 +28,7 @@ APIServer提供了 k8s各类资源对象的CURD/watch、认证授权、准入控
 
 如图所示，这是创建一个资源(Pod)实例过程中，控制层面所经过的调用过程：
 
-![](https://mycloudn.upweto.top/20201126165154.png)
+![](https://mycloudn.wqyin.cn/20201126165154.png)
 
 在这个过程中，控制层面的每个组件、每一步骤，都需要与APIServer交互。
 
