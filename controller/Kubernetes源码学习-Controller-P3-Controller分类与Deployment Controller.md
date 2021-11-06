@@ -6,11 +6,11 @@
 
 Controller部分的第一篇文章中，我们从cobra启动命令入口开始，进入到了多实例leader选举部分的代码，对leader选举流程做了详细地分析：
 
-[Controller-P1-多实例leader选举](https://blog.wqyin.cn/gitbooks/kubeSourceCodeNote/controller/Kubernetes源码学习-Controller-P1-多实例leader选举.html)
+[Controller-P1-多实例leader选举](https://wqyin.cn/gitbooks/kubeSourceCodeNote/controller/Kubernetes源码学习-Controller-P1-多实例leader选举.html)
 
 接着在第二篇中，文字和图解简单描述了controller是如何结合client-go模块中的informer工作的，为本篇及后面的几篇作铺垫：
 
-[Controller-P2-Controller与informer](https://blog.wqyin.cn/gitbooks/kubeSourceCodeNote/controller/Kubernetes源码学习-Controller-P2-Controller与informer.html)
+[Controller-P2-Controller与informer](https://wqyin.cn/gitbooks/kubeSourceCodeNote/controller/Kubernetes源码学习-Controller-P2-Controller与informer.html)
 
 那么本篇，就接着第一篇往下，继续看代码。
 

@@ -218,7 +218,7 @@ RBAC 鉴权机制使用 `rbac.authorization.k8s.io` [API 组](https://kubernetes
 
 RBAC模式的详细描述和使用样例请参考我之前的文章：
 
-[k8s(十四)、RBAC权限控制](https://blog.wqyin.cn/2018/12/06/k8s(%E5%8D%81%E5%9B%9B)%E3%80%81RBAC%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6.html)
+[k8s(十四)、RBAC权限控制](https://wqyin.cn/2018/12/06/k8s(%E5%8D%81%E5%9B%9B)%E3%80%81RBAC%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6.html)
 
 
 
