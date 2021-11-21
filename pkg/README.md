@@ -1,6 +1,6 @@
 ## 盘点k8s pkg中有趣的公共库
 
-- [wait-定时(条件)轮询库](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/pkg/pkg-01-wait-定时(条件)轮询库.md)
+- [wait-定时(条件)轮询库](https://github.com/yinwenqin/kubeSourceCodeNote/blob/master/pkg/pkg-01-wait-定时\(条件\)轮询库.md)
 
 - client-go库(待补充)
 
